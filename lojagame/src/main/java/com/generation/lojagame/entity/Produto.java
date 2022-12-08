@@ -1,5 +1,7 @@
 package com.generation.lojagame.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,6 +14,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "tb_produto")
+@JsonIgnoreProperties
 public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
