@@ -16,8 +16,8 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long>{
 	Produto getById(Long id);
 	
 	
-	@Query("SELECT p FROM Produto p WHERE p.tipo LIKE %:titulo%")
-	List<Produto> getByTitulo(@Param("titulo") String titulo);
+	@Query("SELECT p FROM Produto p WHERE p.tipo LIKE %:tipo%")
+	List<Produto> getByTipo(@Param("tipo") String tipo);
 	
 	public List<Produto> findAllByTituloContainingIgnoreCase(@Param("titulo") String titulo);
 	

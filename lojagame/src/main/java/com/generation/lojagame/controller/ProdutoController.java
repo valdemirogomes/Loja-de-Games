@@ -37,6 +37,11 @@ public class ProdutoController {
 		return service.getById(id);
 	}
 
+	@GetMapping("/tipo/{tipo}")
+	public ResponseEntity<List<Produto>> getByTipo(@PathVariable String tipo) {
+		return service.getByTipo(tipo);
+	}
+
 	@GetMapping("/titulo/{titulo}")
 	public ResponseEntity<List<Produto>> getByTitulo(@PathVariable String titulo) {
 		return service.getByTitulo(titulo);
@@ -47,17 +52,18 @@ public class ProdutoController {
 		return service.post(produto);
 
 	}
+
 	@PutMapping
 	public ResponseEntity<Produto> put(@Valid @RequestBody Produto produto) {
 		return service.put(produto);
-		
+
 	}
-	
+
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		service.delete(id);
-		
+
 	}
 
 }

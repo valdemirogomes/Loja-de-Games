@@ -36,8 +36,19 @@ public class ProdutoService {
 
 	}
 
+	public ResponseEntity<List<Produto>> getByTipo(String tipo) {
+		List<Produto> produto = repository.getByTipo(tipo);
+		if (produto.isEmpty()) {
+			return ResponseEntity.notFound().build();
+
+		} else {
+			return ResponseEntity.ok(produto);
+
+		}
+	}
+	
 	public ResponseEntity<List<Produto>> getByTitulo(String titulo) {
-		List<Produto> produto = repository.getByTitulo(titulo);
+		List<Produto> produto = repository.findAllByTituloContainingIgnoreCase(titulo);
 		if (produto.isEmpty()) {
 			return ResponseEntity.notFound().build();
 
