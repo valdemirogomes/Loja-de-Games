@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name = "tb_temas")
 public class Tema {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -24,11 +24,9 @@ public class Tema {
 	@NotNull(message = "O atributo Descrição é obrigatório")
 	private String descricao;
 
-    @OneToMany(mappedBy = "tema", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "tema", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("tema")
 	private List<Postagem> postagem;
-
-	/*Insira os Getters and Setters*/
 
 	public Long getId() {
 		return this.id;
@@ -46,12 +44,12 @@ public class Tema {
 		this.descricao = descricao;
 	}
 
-    public List<Postagem> getPostagem() {
-        return this.postagem;
-    }
+	public List<Postagem> getPostagem() {
+		return this.postagem;
+	}
 
-    public void setPostagem(List<Postagem> postagem) {
-        this.postagem = postagem;
-    }
+	public void setPostagem(List<Postagem> postagem) {
+		this.postagem = postagem;
+	}
 
 }
